@@ -1,0 +1,18 @@
+<div class="p-4 product">
+    <i (click)="addToWishList(product._id)" [class]="isWishListProduct(product._id)?'fa-solid text-danger':'fa-regular'"
+        class="fa-heart mt-3 fs-4 cursor-pointer"></i>
+    <a [routerLink]="['/product', product._id]">
+        <img class="w-100" [src]="product.imageCover" [alt]="product.title">
+        <span class="font-sm test-main fw-bold">{{product.category.name}}</span>
+        <!-- {{product.title.split(" ").slice(0,2).join("")}} -->
+        <p class="fw-bold">{{product.title|titelSlice:2}}</p>
+        <div class="d-flex justify-content-between">
+            <span class="fw-bold font-sm">{{product.price|addEGP}}</span>
+            <div>
+                <i class="fa-solid fa-star rating-color mx-2"></i>
+                <span class="fw-bold font-sm">{{product.ratingsAverage}}</span>
+            </div>
+        </div>
+    </a>
+    <button (click)="addToCart(product._id)" class="btn bg-main w-100 text-white mt-3 ">+ Add To Chart</button>
+</div>

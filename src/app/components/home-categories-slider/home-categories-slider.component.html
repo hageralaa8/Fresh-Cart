@@ -1,0 +1,14 @@
+<h3 class="fw-bold my-4">Shop Popular Categories :</h3>
+<owl-carousel-o [options]="customOptions">
+<!-- of array eli ana 3aiza a loop 3aliha -->
+    <ng-container *ngFor="let Category of allCategories">
+        <ng-template carouselSlide>
+            <div class="d-flex align-items-center flex-column">
+                <!-- height="200" class="object-fit-cover" -> 3ashn kol sower tkon nafs el height w kman a7afz 3la Aspect Ratio  -->
+                <img height="200" class="object-fit-cover" [src]="Category.image" [alt]="Category.name" />
+                <p class="py-2 font-sm">{{Category.name}}</p>
+            </div>
+        </ng-template>
+    </ng-container>
+
+</owl-carousel-o>

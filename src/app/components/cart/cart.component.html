@@ -1,0 +1,49 @@
+<div class="container mt-5 pt-5">
+    <div class="container bg-main-light p-4 shadow-sm my-5 rounded ">
+        <h4 class="my-3 fw-bold">Shop Cart</h4>
+        <p class="text-main fw-bold font-sm pb-3 border-bottom">Total Price: {{cartDetails?.totalCartPrice|addEGP}}</p>
+        <!-- cartItem-> hwa object gowa array asmha product bikon fe ma3lomat el produvt nafso el img ,... -->
+        <div *ngFor="let cartItem of cartDetails?.products" class="row align-items-center p-2 border-bottom pb-3">
+            <div class="col-md-1">
+                <div>
+                    <img class="w-100 img-thumbnail" [src]="cartItem.product.imageCover" alt="">
+                </div>
+            </div>
+            <div class="col-md-11">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="my-0 fw-bold">{{cartItem.product.title}}</p>
+                        <p class="my-0 text-main fw-bold font-sm">Price:{{cartItem.price|addEGP}}</p>
+                        <div class="hov mt-2">
+                            <button (click)="removeCartItem(cartItem.product._id)" class="btn m-0 p-0">
+                                <i class="fa-regular fa-trash-can text-main defrant"></i>
+                                <span class="ms-1 fw-bold font-sm">Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="hov-bloue">
+                            <button (click)="updateCartItem(cartItem.product._id ,cartItem.count+1)"
+                                class="border-main rounded hov">+</button>
+                        </div>
+                        <span class="mx-3">{{cartItem.count}}</span>
+                        <div class="hov">
+                            <button (click)="updateCartItem(cartItem.product._id ,cartItem.count-1)"
+                                class="border-main rounded hov">-</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-between">
+            <!-- object -> object data -> key _id-->
+            <a [routerLink]="['/shippingAddress', cartDetails._id]" class="btn bg-main text-white my-3 fw-bold">Online
+                Payment
+                <img width="30px" class="mx-1" src="assets/images/visa-1.svg" alt="">
+            </a>
+            <button (click)="removeAllCart()" class="btn btn-danger ">Clear Cart</button>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="isLoading"></app-loading>

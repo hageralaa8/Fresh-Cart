@@ -1,0 +1,37 @@
+<div class="container mt-5 pt-5">
+    <div class="w-50 mx-auto my-5">
+        <!-- [formGroup] directive bbind 3alih w adilo asm el form lrbt form b form  -->
+        <form (submit)="handelshappingAddress(shappingAddressForm)" [formGroup]="shappingAddressForm">
+            <h1 class="text-main h2 my-3">
+                Shapping Address :
+            </h1>
+
+            <label class="mt-3" for="details">Details :</label>
+            <!-- lrbt kol input b control hnak directive-> formControlName  -->
+            <input class="form-control " id="details" type="text" formControlName="details">
+
+            <div *ngIf="shappingAddressForm.get('details')?.invalid && shappingAddressForm.get('details')?.touched"
+                class="text-danger">
+                <p *ngIf="shappingAddressForm.get('details')?.getError('required')" class="my-0">details is required</p>
+            </div>
+
+            <label class="mt-3" for="userphone">phone :</label>
+            <input formControlName="phone" class="form-control" id="userphone" type="tel">
+            <div *ngIf="shappingAddressForm.get('phone')?.invalid && shappingAddressForm.get('phone')?.touched"
+                class="text-danger">
+                <p *ngIf="shappingAddressForm.get('phone')?.getError('required')" class="my-0">Password is required</p>
+                <p *ngIf="shappingAddressForm.get('phone')?.getError('pattern')" class="my-0">Enter valid phone </p>
+
+            </div>
+
+            <label class="mt-3" for="city">City :</label>
+            <input class="form-control " id="city" type="text" formControlName="city">
+            <div *ngIf="shappingAddressForm.get('city')?.invalid && shappingAddressForm.get('city')?.touched"
+                class="text-danger">
+                <p *ngIf="shappingAddressForm.get('city')?.getError('required')" class="my-0">city is required</p>
+            </div>
+
+            <button class="btn bg-main text-white d-block ms-auto my-3">Pay Now</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container mt-5 pt-5">
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="border p-4">
+                <!-- library ngx-owl-carousel-o bt3mly slider-->
+                <owl-carousel-o [options]="customOptions">
+                    <ng-container *ngFor="let productImg of productDetails?.images">
+                        <ng-template carouselSlide>
+                            <img class="w-100" [src]="productImg" [alt]="productDetails?.title">
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <div class="p-4">
+                <h3 class="fw-bold">{{productDetails?.title}}</h3>
+                <p class="my-3">{{productDetails?.description}}</p>
+                <span class="font-sm text-main fw-bold">{{productDetails?.category?.name}}</span>
+                <div class="my-3">
+                    <p class="my-0 font-sm fw-bold text-secondary">Available Quatity : {{productDetails?.quantity}}</p>
+                    <p class="my-0 font-sm fw-bold text-secondary">Brand : {{productDetails?.brand?.name}}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <span class="font-sm fw-bold">{{productDetails?.price}} EGP</span>
+                    <div>
+                        <i class="fa-solid fa-star rating-color mx-2"></i>
+                        <span class="fw-bold font-sm">{{productDetails?.ratingsAverage}}</span>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <!-- flex-grow -> hai5od el space el fadel -->
+                    <button (click)="addToCart(productDetails?._id)"
+                        class="btn me-3 bg-main flex-grow-1 text-white mt-3"> Add To
+                        Cart
+                        <i class="fas fa-shopping-cart"></i></button>
+                    <button class="btn bg-danger flex-grow-1 text-white mt-3">Add To
+                        wishlist
+                        <i class="fas fa-heart ms-2"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="isLoading"></app-loading>

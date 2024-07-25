@@ -1,0 +1,22 @@
+<!-- <div *ngIf="isLoading" class=" position-fixed top-0 end-0 start-0 bottom-0 bg-dark vh-100 zeindex d-flex align-items-center justify-content-center">
+    <div class="pendulum d-flex align-items-center justify-content-center">
+        <div class="pendulum_box d-flex align-items-center justify-content-center ">
+            <div class="ball first"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball last"></div>
+        </div>
+    </div>
+</div> -->
+    <div class="row g-4">
+        <div *ngFor="let category of allCategories" class="col-6 col-sm-4 col-md-4 mt-2 ">
+            <a [routerLink]="['/products/Category', category._id]">
+                <div class="p-3 product">
+                    <img height="400px" class="w-100 rounded object-fit-cover" [src]="category.image" alt="">
+                    <p class="text-center fw-bold mt-2">{{category.name}}</p>
+                </div>
+            </a>
+        </div>
+
+    </div>

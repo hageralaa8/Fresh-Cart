@@ -1,0 +1,11 @@
+<app-home-main-slider></app-home-main-slider>
+<app-home-categories-slider></app-home-categories-slider>
+<!-- directive ngModel[()] ="name property"   -->
+<input [(ngModel)]="searchItem" type="text" class="form-control my-3" placeholder="search by product name">
+<div class="row">
+    <h3 class="fw-bold">Popular items this season</h3>
+    <div *ngFor="let currentProduct of allProducts|search:searchItem" class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <app-product [product]="currentProduct"></app-product>
+    </div>
+</div>
+<app-loading *ngIf="isLoading"></app-loading>
