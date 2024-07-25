@@ -49,7 +49,7 @@ export class CartService {
   }
 
   onlinePayment(cartId: any, shappingAddress: any): Observable<any> {
-    return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=url=https://fresh-cart-tau-seven.vercel.app/`,
+    return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?=url=https://fresh-cart-tau-seven.vercel.app`,
       { shappingAddress: shappingAddress },
     )
   }
