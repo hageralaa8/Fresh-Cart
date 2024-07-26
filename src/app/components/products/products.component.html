@@ -1,1 +1,47 @@
-<p>products works!</p>
+    <h2 class="fw-bold mt-5 text-main text-center"> All products </h2>
+    <input
+      [(ngModel)]="searchitem"
+      type="text"
+      class="form-control my-5"
+      placeholder="Search by broduct name "
+    />
+    <div class="row justify-content-center gy-3">
+      <!-- <div
+        *ngFor="
+          let currentproduct of allproduct
+            | search : searchitem
+            | paginate
+              : {
+                  id: 'productspaginate',
+                  itemsPerPage: pageSize,
+                  currentPage: currentPage,
+                  totalItems: total
+                }
+        "
+        class="col-sm-6 col-md-4 col-lg-3 col-xl-2 rounded-5"
+      >
+        <app-product [product]="currentproduct"> </app-product>
+      </div> -->
+  
+      <div
+        class="flex justify-content-center align-items-center text-center mt-5" >
+        <!-- <pagination-controls
+          id="productspaginate"
+          class="my-pagintion"
+          (pageChange)="pageChanged($event)"
+          (pageBoundsCorrection)="pageChanged($event)"
+          [maxSize]="9"
+          [directionLinks]="true"
+          [autoHide]="true"
+          [responsive]="true"
+          previousLabel="Previous"
+          nextLabel="Next"
+          screenReaderPaginationLabel="Pagination"
+          screenReaderPageLabel="page"
+          screenReaderCurrentLabel="You're on page"
+        >
+        </pagination-controls> -->
+      </div>
+    </div>
+  
+  <app-loading *ngIf="isLoading"></app-loading>

@@ -1,1 +1,12 @@
-<p>brands works!</p>
+    <div class="row gap-3">
+        <div *ngFor="let currentbrand of allbrands" class=" brand col-sm-6 col-md-4 col-lg-3 col-xl-2  border shadow-sm  " >
+          <a [routerLink]="['/products/brands',currentbrand?._id]">
+            <div  class="text-center">
+              <img class="w-100 p-4 " [src]="currentbrand?.image" alt="">
+              <p class="text-main fw-bold">{{currentbrand?.name}}</p>
+            </div>
+          </a>
+  
+        </div>
+    </div>
+  <app-loading *ngIf="isLoading"></app-loading>

@@ -11,7 +11,7 @@ export class CartComponent implements OnInit {
 
   cartDetails: any;
   //3andy haga asmha type inference msh shart a7dd el type talma hady initial value
-  isLoading: boolean = true
+  isLoading = false
 
   constructor(private _CartService: CartService, private toastr: ToastrService) { }
   ngOnInit(): void {

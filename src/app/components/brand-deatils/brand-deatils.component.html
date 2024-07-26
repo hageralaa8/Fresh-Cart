@@ -1,0 +1,9 @@
+  <div *ngIf="productDetails?.length;else non" class="row my-5">
+      <div *ngFor="let item of productDetails" class="col-md-3 ">
+          <app-product [product]="item"></app-product>
+      </div>
+  </div>
+  <ng-template #non>
+              <h2 class="h1 fw-bolder text-center">No available Data For This category</h2>
+  </ng-template>
+  <app-loading *ngIf="isLoading"></app-loading>

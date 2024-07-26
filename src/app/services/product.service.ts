@@ -7,26 +7,24 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  constructor(private _HttpClient:HttpClient) { }
-  getAllProducts():Observable<any>
-  {
+  constructor(private _HttpClient: HttpClient) { }
+  getAllProducts(): Observable<any> {
     return this._HttpClient.get("https://ecommerce.routemisr.com/api/v1/products")
   }
-  getProductById(id:string):Observable<any> {
+  getProductById(id: string): Observable<any> {
     return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)
-   }
-   //bageb kol el categories 3ashn a3rdha fe slider bta3 el home
-   getAllCategories():Observable<any> {
+  }
+  //bageb kol el categories 3ashn a3rdha fe slider bta3 el home
+  getAllCategories(): Observable<any> {
     return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/categories`)
-   }
-    
-   getProductsByCateogory(categoryId:string):Observable<any>{
+  }
+
+  getProductsByCateogory(categoryId: string): Observable<any> {
     return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/products?category=${categoryId}`)
-   }
+  }
 
-   
-  //  getNextPage(id:number):Observable<any> {
-  //   return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/products?page=${id}`)
-  //   }
+  getProductsByBrand(brandId: string): Observable<any> {
+    return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/products?brand=${brandId}`)
+  }
 
- }
+}

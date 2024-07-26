@@ -1,4 +1,3 @@
-<div class="container mt-5 pt-5">
     <div class="row align-items-center">
         <div class="col-md-4">
             <div class="border p-4">
@@ -35,7 +34,7 @@
                         class="btn me-3 bg-main flex-grow-1 text-white mt-3"> Add To
                         Cart
                         <i class="fas fa-shopping-cart"></i></button>
-                    <button class="btn bg-danger flex-grow-1 text-white mt-3">Add To
+                    <button (click)="addToWishList(productId!)" class="btn bg-danger flex-grow-1 text-white mt-3">Add To
                         wishlist
                         <i class="fas fa-heart ms-2"></i>
                     </button>
@@ -44,5 +43,4 @@
             </div>
         </div>
     </div>
-</div>
 <app-loading *ngIf="isLoading"></app-loading>

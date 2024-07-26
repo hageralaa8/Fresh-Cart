@@ -11,7 +11,7 @@ import { WishListService } from 'src/app/services/wish-list.service';
   styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent implements OnInit {
-  isLoading: boolean = true
+  isLoading: boolean = false
   allWishListProducts: IProduct[] = []
   constructor(private _WishlistService: WishListService, private _CartService: CartService, private toastr: ToastrService) { 
     

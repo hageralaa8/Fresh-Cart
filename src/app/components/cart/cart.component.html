@@ -1,5 +1,4 @@
-<div class="container mt-5 pt-5">
-    <div class="container bg-main-light p-4 shadow-sm my-5 rounded ">
+    <div class=" bg-main-light p-4 shadow-sm rounded ">
         <h4 class="my-3 fw-bold">Shop Cart</h4>
         <p class="text-main fw-bold font-sm pb-3 border-bottom">Total Price: {{cartDetails?.totalCartPrice|addEGP}}</p>
         <!-- cartItem-> hwa object gowa array asmha product bikon fe ma3lomat el produvt nafso el img ,... -->
@@ -45,5 +44,4 @@
             <button (click)="removeAllCart()" class="btn btn-danger ">Clear Cart</button>
         </div>
     </div>
-</div>
 <app-loading *ngIf="isLoading"></app-loading>

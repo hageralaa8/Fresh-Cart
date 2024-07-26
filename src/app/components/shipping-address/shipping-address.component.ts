@@ -9,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./shipping-address.component.css']
 })
 export class ShippingAddressComponent implements OnInit {
+  isLoading:boolean=false
 
   //Form:type نوع ->FormGroup = a5od instance mn FormGroup bta5od mny object fe kol el control({ details: new FormControl(null -> initial value , Validators or array)
   shappingAddressForm: FormGroup = new FormGroup({
@@ -19,6 +20,7 @@ export class ShippingAddressComponent implements OnInit {
 
   cartId: string | null = "";
   ngOnInit(): void {
+    
     //class _ActivatedRoute -->ba5od mno inistance fe ma3lomat kter / .paramMap ---> observable
     //
     this._ActivatedRoute.paramMap.subscribe({
@@ -38,15 +40,20 @@ export class ShippingAddressComponent implements OnInit {
 
   constructor(private _CartService: CartService, private _ActivatedRoute: ActivatedRoute) { }
   handelshappingAddress(form: FormGroup) {
+    if(this.shappingAddressForm.valid){
+    this.isLoading=true
     this._CartService.onlinePayment(this.cartId, form.value).subscribe({
       next: (response) => {
         //path -> response --> object .session -> key url
         this.redirectToPaymentPage(response.session.url)
+        this.isLoading=false
       },
       error: (err) => {
         console.log(err);
+        this.isLoading=false
       }
     })
   }
+}
 }
 

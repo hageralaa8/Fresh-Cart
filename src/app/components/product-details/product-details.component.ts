@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { IProduct } from 'src/app/interfaces/iproduct';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
+import { WishListService } from 'src/app/services/wish-list.service';
 
 
 @Component({
@@ -54,7 +55,7 @@ export class ProductDetailsComponent implements OnInit {
   isLoading: boolean = false;
   productId: string | null = null;
   productDetails?: IProduct;
-  constructor(private _ActivatedRoute: ActivatedRoute, private _ProductService: ProductService, private _CartService: CartService, private toastr: ToastrService) { }
+  constructor(private _ActivatedRoute: ActivatedRoute, private _ProductService: ProductService, private _CartService: CartService, private toastr: ToastrService , private _WishListService:WishListService) { }
   ngOnInit(): void {
     this.isLoading = true;
     //awsel azay ll params (ActivatedRoute) ---> class birg3ly data 3n el routeActive 
@@ -97,6 +98,26 @@ export class ProductDetailsComponent implements OnInit {
       }
     })
   }
+  addToWishList(id:string){
+    this._WishListService.addProductToWishList(id).subscribe({
+      next:(response)=>{
+        console.log(response);
+        this._WishListService.wishListCount.next((response.data as IProduct []).length)
+
+        this.toastr.success('Added', 'product succes added to your wishlist',{
+          positionClass: 'toast-top-right',
+          timeOut: 3000,
+          closeButton: true,
+          progressBar: true,
+          progressAnimation: 'increasing',
+        });
+
+
+      },
+      error:(err)=>{console.log(err);
+      }
+    })
 
 }
 
+}

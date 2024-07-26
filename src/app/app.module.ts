@@ -33,6 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CategoryProductsComponent } from './components/category-products/category-products.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { WishlistComponent} from './components/wishlist/wishlist.component';
+import { BrandDeatilsComponent } from './components/brand-deatils/brand-deatils.component';
 //tgbly data token moshfr
 // import { jwtDecode } from "/path/to/jwt-decode.js";
 
@@ -65,6 +66,8 @@ import { WishlistComponent} from './components/wishlist/wishlist.component';
     CategoryProductsComponent,
     LoadingComponent,
     WishlistComponent,
+    BrandDeatilsComponent,
+    
     
   ],
   imports: [

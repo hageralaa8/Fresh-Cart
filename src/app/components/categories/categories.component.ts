@@ -11,7 +11,7 @@ export class CategoriesComponent implements OnInit {
 
 
   constructor(private _ProductService: ProductService,) { }
-  isLoading: boolean = true;
+  isLoading = false;
   allCategories:ICategory[] = [];
 
   ngOnInit(): void {
@@ -23,6 +23,7 @@ export class CategoriesComponent implements OnInit {
         this.isLoading = false;
       },
       error:(err)=>{console.log(err)
+      this.isLoading = false;
       }
     })
   }

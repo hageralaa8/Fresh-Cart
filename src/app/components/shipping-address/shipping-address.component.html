@@ -1,4 +1,3 @@
-<div class="container mt-5 pt-5">
     <div class="w-50 mx-auto my-5">
         <!-- [formGroup] directive bbind 3alih w adilo asm el form lrbt form b form  -->
         <form (submit)="handelshappingAddress(shappingAddressForm)" [formGroup]="shappingAddressForm">
@@ -34,4 +33,4 @@
             <button class="btn bg-main text-white d-block ms-auto my-3">Pay Now</button>
         </form>
     </div>
-</div>
+<app-loading *ngIf="isLoading"></app-loading>
