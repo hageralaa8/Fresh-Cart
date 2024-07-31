@@ -1,47 +1,12 @@
-    <h2 class="fw-bold mt-5 text-main text-center"> All products </h2>
-    <input
-      [(ngModel)]="searchitem"
-      type="text"
-      class="form-control my-5"
-      placeholder="Search by broduct name "
-    />
-    <div class="row justify-content-center gy-3">
-      <!-- <div
-        *ngFor="
-          let currentproduct of allproduct
-            | search : searchitem
-            | paginate
-              : {
-                  id: 'productspaginate',
-                  itemsPerPage: pageSize,
-                  currentPage: currentPage,
-                  totalItems: total
-                }
-        "
-        class="col-sm-6 col-md-4 col-lg-3 col-xl-2 rounded-5"
-      >
-        <app-product [product]="currentproduct"> </app-product>
-      </div> -->
-  
-      <div
-        class="flex justify-content-center align-items-center text-center mt-5" >
-        <!-- <pagination-controls
-          id="productspaginate"
-          class="my-pagintion"
-          (pageChange)="pageChanged($event)"
-          (pageBoundsCorrection)="pageChanged($event)"
-          [maxSize]="9"
-          [directionLinks]="true"
-          [autoHide]="true"
-          [responsive]="true"
-          previousLabel="Previous"
-          nextLabel="Next"
-          screenReaderPaginationLabel="Pagination"
-          screenReaderPageLabel="page"
-          screenReaderCurrentLabel="You're on page"
-        >
-        </pagination-controls> -->
+<div class="container mt-5 pt-5 ">
+  <div class="row">
+      <h3 class="fw-bold">popular items this season :</h3>
+      <label class="fw-bold mt-3 ms-0" for="search">Search By Name :</label>
+      <input [(ngModel)]="searchItems" placeholder="Enter the name to search for it" class="form-control" type="text"
+          id="search">
+      <div *ngFor="let product of allProduct|search:searchItems" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-2">
+          <app-product [product]="product"></app-product>
       </div>
-    </div>
-  
-  <app-loading *ngIf="isLoading"></app-loading>
+  </div>
+</div>
+<app-loading *ngIf="isLoading"></app-loading>

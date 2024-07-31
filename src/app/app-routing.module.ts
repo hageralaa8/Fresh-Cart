@@ -18,19 +18,22 @@ import { ShippingAddressComponent } from './components/shipping-address/shipping
 import { OrdersComponent } from './components/orders/orders.component';
 import { CategoryProductsComponent } from './components/category-products/category-products.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { BrandDeatilsComponent } from './components/brand-deatils/brand-deatils.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' }, //full ->home only , prefix->home/id ...
   { path: 'home', canActivate: [authGuard], component: HomeComponent },
   { path: 'brands', canActivate: [authGuard], component: BrandsComponent },
+  { path: 'products/brands/:id', canActivate: [authGuard], component:BrandDeatilsComponent },
   { path: 'wishlist', canActivate: [authGuard], component: WishlistComponent },
   { path: 'cart', canActivate: [authGuard], component: CartComponent },
   { path: 'categories', canActivate: [authGuard], component: CategoriesComponent },
+  { path: 'products/Category/:id', canActivate: [authGuard], component: CategoryProductsComponent },
   { path: 'products', canActivate: [authGuard], component: ProductsComponent },
   { path: 'shippingAddress/:id', canActivate: [authGuard], component: ShippingAddressComponent },
   { path: 'allorders', canActivate: [authGuard], component: OrdersComponent },
   { path: 'product/:id', canActivate: [authGuard], component: ProductDetailsComponent },
-  { path: 'products/Category/:id', canActivate: [authGuard], component: CategoryProductsComponent },
+  
   //load modulesetting
   { path: 'settings', loadChildren:()=>(import('./settings/settings-routing.module').then((m) =>m.SettingsRoutingModule))},
   // authGurad hawsl ll pages w ana 3amla login
